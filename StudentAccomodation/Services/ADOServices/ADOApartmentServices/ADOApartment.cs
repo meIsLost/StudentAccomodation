@@ -11,15 +11,15 @@ namespace StudentAccomodation.Services.ADOServices.ADOApartmentServices
         public ADOApartment(IConfiguration configuration)
         {
             _configuration = configuration;
-            _connectionString = configuration.GetConnectionString("IamConnector");      
+            _connectionString = _configuration.GetConnectionString("IamConnector");      
         }
-        Apartment apartment1 = new Apartment();
+        
 
 
         public List<Apartment> DisplayAllapartments()
         {
-            List<Apartment> apartments = new List<Apartment>();
-            string query = "select *  from Apartment";
+            List<Apartment> apartmentsz = new List<Apartment>();
+            string query = "select *  from Appartment";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -29,14 +29,14 @@ namespace StudentAccomodation.Services.ADOServices.ADOApartmentServices
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        Apartment apartment = new Apartment();
-                        apartment.Appart_No = Convert.ToInt32(reader[0]);
-                        apartment.Address = Convert.ToString(reader[1]);
-                        apartment.Types = Convert.ToChar(reader[1]);
-                        apartments.Add(apartment);
+                        Apartment apartments = new Apartment();
+                        apartments.Appart_No = Convert.ToInt32(reader[0]);
+                        apartments.Address = Convert.ToString(reader[1]);
+                        apartments.Types = Convert.ToChar(reader[2]);
+                        apartmentsz.Add(apartments);
                     }
                 }
-                return apartments;
+                return apartmentsz;
             }
         }
     }

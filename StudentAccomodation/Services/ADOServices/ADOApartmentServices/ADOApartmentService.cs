@@ -14,7 +14,7 @@ namespace StudentAccomodation.Services.ADOServices.ADOApartmentServices
 
         public IEnumerable<Apartment> DisplayAllapartments()
         {
-            throw new NotImplementedException();
+           return _service.DisplayAllapartments();
         }
     }
 }

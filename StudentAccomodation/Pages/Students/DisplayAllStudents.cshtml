@@ -1,0 +1,34 @@
+﻿@page
+@model StudentAccomodation.Pages.Students.DisplayAllStudentsModel
+@{
+    ViewData["Title"] = "GetStudents";
+}
+
+<h3 style="color:red"> List of Students</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th> Student Number </th>
+            <th> Student Name</th>
+            <th>  Student Address</th>
+            <th>  Occupied(True/False)</th>
+            <th>  Registration Date</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model != null)
+        {
+            @foreach (var @item in Model.AllStudents)
+            {
+                <tr>
+                    <td>  @item.Student_No</td>
+                    <td>  @item.SName </td>
+                    <td>  @item.SAddress </td>
+                     <td>  @item.Has_Room </td>
+                     <td>  @item.Registration_Date </td>
+                    
+                 </tr>
+            }
+        }
+</table>

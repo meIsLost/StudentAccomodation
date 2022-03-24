@@ -1,0 +1,30 @@
+﻿@page
+@model StudentAccomodation.Pages._Apartment.DisplayApartmentsModel
+@{
+    ViewData["Title"] = "GetAparments";
+}
+
+<h3 style="color:red"> List Apartments</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th> Apartmnet Number </th>
+            <th> Address</th>
+            <th>  Types</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model != null)
+        {
+            @foreach (var @item in Model.AllApartments)
+            {
+                <tr>
+                    <td>  @item.Appart_No </td>
+                    <td>  @item.Address </td>
+                    <td>  @item.Types </td>
+                    
+                 </tr>
+            }
+        }
+</table>

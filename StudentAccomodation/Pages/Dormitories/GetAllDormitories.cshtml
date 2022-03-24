@@ -1,0 +1,30 @@
+﻿@page
+@model StudentAccomodation.Pages.Dormitories.GetAllDormitoriesModel
+@{
+    ViewData["Title"] = "GetDormitories";
+}
+
+<h3 style="color:red"> List of  Dormitories</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th> Dormitory Number </th>
+            <th>Name </th>
+            <th>  Address</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model != null)
+        {
+            @foreach (var @item in Model.AllDormies)
+            {
+                <tr>
+                    <td>  @item.Dormitory_No </td>
+                    <td>  @item.Name </td>
+                    <td>  @item.Address</td>
+                    
+                 </tr>
+            }
+        }
+</table>

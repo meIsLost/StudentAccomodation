@@ -1,0 +1,54 @@
+﻿@page
+@model StudentAccomodation.Pages.Rooms.DisplayAllRoomsModel
+@{
+    ViewData["Title"] = "GetRooms";
+}
+
+<h3 style="color:red"> List of Rooms</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th> Place Number </th>
+            <th> Rent Per Semester</th>
+            <th>  Occupied(T/F)</th>
+             <th>  Room Number</th>
+             <th>  Dormitory Number</th>
+              <th>  Appartment Number</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model != null)
+        {
+            @foreach (var @item in Model.AllRooms)
+            {
+                <tr>
+                    <td>  @item.Place_No </td>
+                    <td>  @item.Rent_Per_Semester </td>
+                    <td>  @item.Occupied </td>
+                     <td>  @item.Room_No </td>
+
+                     @if (@item.Dormitory_No == -1)
+                     {
+                        <td></td>
+
+                     }
+                    else
+                    {
+                        <td>  @item.Dormitory_No </td>
+                    }
+                    
+                    @if (@item.Appart_No == -1)
+                     {
+                        <td></td>
+
+                     }
+                    else
+                    {
+                        <td>  @item.Appart_No</td>
+                    }
+                 
+                 </tr>
+            }
+        }
+</table>
